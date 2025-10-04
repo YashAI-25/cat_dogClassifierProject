@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image deep leraning</title>
+    <link rel="stylesheet" href="frontend.css">
+</head>
+<body>
+    <form id="form">
+        <div class="card">
+        <h1> Image Predictions</h1>
+        <label for="">Please  Select The Image</label>
+        <input type="file" placeholder="plz choose image" name="image_path">
+        <button type="submit"> Predict Image</button>
+        <div id="predlab"></div>
+         <div id="imgcont"></div>
+        <div id="predpercent"></div>
+        </div>
+    </form>
+</body>
+<script>
+document.getElementById('form').addEventListener("submit",async function(event) {
+    event.preventDefault();
+    let formData=new FormData(this);
+    console.log(formData);
+    let resopnse= await fetch('http://127.0.0.1:8000/predictimg',{
+        method:"POST",
+        body:formData
+    });
+    let result= await resopnse.json()
+    console.log(result);
+    document.getElementById('predlab').innerHTML=`The Prediction is : ${result.lb}`
+    document.getElementById('predpercent').innerHTML=`${result.conf}% It is ${result.lb}`
+  
+    let file = formData.get("image_path");
+let imgUrl = URL.createObjectURL(file);
+
+document.getElementById("imgcont").innerHTML = 
+    `<img src="${imgUrl}" width="200" height="200">`;
+
+
+
+})
+</script>
+</html>

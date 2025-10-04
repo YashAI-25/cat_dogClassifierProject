@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    background-image: url(img123.jpg) ;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    border-radius: 20px;
+ background-color:#393E46;
+ color: #00ADB5;
+ min-height:400px;
+ min-width: 320px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ gap: 30px;
+ border: 2px solid #00ADB5;
+ padding: 5px 10px;
+}
+.card h1{
+    color: yellow;
+}
+.card label{
+    color: aqua;
+}
+.card input{
+    border: none;
+    color: red;
+    font-weight: 600;
+    margin-left: 80px;
+}
+.card button{
+    background-color: greenyellow;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    color: red;
+    border-radius: 18px;
+}
+.card button:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+#predlab,#predpercent{
+    color:yellow;
+    font-size: 20px;
+}
